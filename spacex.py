@@ -18,10 +18,10 @@ def main():
 def print_launch(launch, title_length):
     mission_name = launch["mission_name"]
     print_title(mission_name, title_length)
-    print_info("Rocket\t\t" + launch["rocket"]["rocket_name"])
+    print_info("Rocket", launch["rocket"]["rocket_name"])
     print_launch_date(launch)
-    print_info("Launch Site\t" + launch["launch_site"]["site_name_long"])
-    print_info("Number\t\t" + str(launch["flight_number"]))
+    print_info("Launch Site", launch["launch_site"]["site_name_long"])
+    print_info("Number", str(launch["flight_number"]))
     print_customers(launch)
     print_payload(launch)
     print()
@@ -30,14 +30,14 @@ def print_launch(launch, title_length):
 def print_customers(launch):
     customers = list(objectpath.Tree(launch).execute("$.rocket..customers.*"))
     if customers.__len__() == 1:
-        print_info("Customer:\t\t" + customers[0])
+        print_info("Customer", customers[0])
     elif customers.__len__() > 1:
-        print_info("Customers:\t" + ", ".join(customers))
+        print_info("Customers", ", ".join(customers))
 
 
 def print_payload(launch):
     payload = list(objectpath.Tree(launch).execute("$.rocket..payload_type"))
-    print_info("Payload:\t\t" + ", ".join(payload))
+    print_info("Payload", ", ".join(payload))
 
 
 def print_launch_date(launch):
@@ -50,7 +50,7 @@ def print_launch_date(launch):
         date_format = "{:%d, %b %Y}"
     elif precision == "quarter":
         date_format = ordinal(quarter_by_date(launch_date)) + " quarter {:%Y}"
-    print_info("Launch Date\t" + date_format.format(launch_date))
+    print_info("Launch Date", date_format.format(launch_date))
 
 
 def quarter_by_date(date: datetime):
@@ -71,8 +71,8 @@ def calculate_title_length(launches):
     return length
 
 
-def print_info(text: str):
-    print("  " + text)
+def print_info(key: str, value: str):
+    print(key.ljust(14, ' ') + value)
 
 
 def print_title(title, length):
