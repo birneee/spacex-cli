@@ -1,5 +1,11 @@
 # SpaceX CLI
 
+Show upcoming SpaceX launches
+
+### Demo
+
+<img src="/assets/powershell.PNG" alt="Demo">
+
 ### Run
 ```
 python spacex.py
