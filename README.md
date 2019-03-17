@@ -5,6 +5,7 @@ Show upcoming SpaceX launches
 Using: https://github.com/r-spacex/SpaceX-API
 
 ### Demo
+<img src="/assets/ubuntu.png" alt="Demo">
 
 <img src="/assets/powershell.PNG" alt="Demo">
 
