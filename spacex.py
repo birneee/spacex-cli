@@ -59,7 +59,7 @@ def main():
 
 
 def print_launch(launch):
-    print_launch_p(
+    print_launch_with(
         launch["mission_name"],
         launch["rocket"]["rocket_name"],
         get_launch_date_str(launch),
@@ -70,7 +70,7 @@ def print_launch(launch):
     )
 
 
-def print_launch_p(mission_name, rocket_name, launch_date, launch_site, number, customer, payload):
+def print_launch_with(mission_name, rocket_name, launch_date, launch_site, number, customer, payload):
     data = [
         ("Mission", Style.BRIGHT + mission_name + Style.RESET_ALL),
         ("Rocket", rocket_name),
@@ -117,14 +117,6 @@ def quarter_by_date(date: datetime):
 
 def ordinal(n):
     return "%d%s" % (n, "tsnrhtdd"[(n / 10 % 10 != 1) * (n % 10 < 4) * n % 10::4])
-
-
-def print_info(key: str, value: str):
-    print(key.ljust(14, ' ') + value)
-
-
-def print_title(title, length):
-    print("- {} ".format(title).ljust(length, '-'))
 
 
 main()
